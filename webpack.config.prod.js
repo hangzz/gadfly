@@ -10,6 +10,10 @@ const config = merge(commonConfig, {
             compress: {
                 warnings: false
             }
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
+            'name':'vendor',
+            'minChunks':2
         })
     ]
 });
