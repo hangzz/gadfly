@@ -3,7 +3,7 @@
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 const OpenBrowserPlugin = require('open-browser-webpack-plugin');
-const commonConfig = require('./webpack.config.js');
+const commonConfig = require('./base.js');
 
 
 const config = merge(commonConfig, {
@@ -11,7 +11,6 @@ const config = merge(commonConfig, {
     plugins: [
         new OpenBrowserPlugin(),
         new webpack.HotModuleReplacementPlugin({
-            multiStep: true
         })
     ],
     devServer: {

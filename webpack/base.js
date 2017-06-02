@@ -4,15 +4,17 @@ const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const APP_PATH = path.resolve(__dirname, 'app');
+const APP_PATH = path.resolve(__dirname, '../src');
 
 module.exports = {
     entry: {
-        app: path.join(__dirname, 'app')
+        app: path.join(__dirname, '../src')
     },
     output: {
-        path: path.join(__dirname, 'build'),
-        filename: '[name].js'
+        path: path.join(__dirname, '../dist'),
+        filename: '[name].js',
+        chunkFilename: 'bundle-[id].js',
+        publicPath:'/'
     },
     module: {
         loaders: [
@@ -37,6 +39,10 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             title: 'demo'
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
+            'name':'common',
+            'minChunks':2
         })
     ]
 }

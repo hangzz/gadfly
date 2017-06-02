@@ -2,7 +2,7 @@
 
 const webpack = require('webpack');;
 const merge = require('webpack-merge');
-const commonConfig = require('./webpack.config.js');
+const commonConfig = require('./base.js');
 
 const config = merge(commonConfig, {
     plugins: [
@@ -10,10 +10,6 @@ const config = merge(commonConfig, {
             compress: {
                 warnings: false
             }
-        }),
-        new webpack.optimize.CommonsChunkPlugin({
-            'name':'vendor',
-            'minChunks':2
         })
     ]
 });
