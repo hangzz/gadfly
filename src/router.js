@@ -1,13 +1,14 @@
 'use strict';
 
 import React from 'react'
-import { Menu, Icon } from 'antd';
+import { Menu } from 'antd';
 import {
   BrowserRouter as Router,
   Route,
   Link
 } from 'react-router-dom';
 
+import './index.css'
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
 const config = () => (

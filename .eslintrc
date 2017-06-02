@@ -1,0 +1,25 @@
+{
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
+    "env": {
+        "browser": true
+    },
+    "plugins": [
+        "react"
+    ],
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended" //react 推荐
+    ],
+    //自定义规则
+    "rules": {
+        "quotes": ["error","single"], //强制使用一致的反勾号、双引号或单引号
+        "no-console": "warn",
+        "no-debugger": "warn"
+    }
+}
