@@ -8,7 +8,6 @@ import {
   Link
 } from 'react-router-dom';
 
-import './index.css'
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
 const config = () => (

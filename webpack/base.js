@@ -3,8 +3,6 @@
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const autoprefixer = require('autoprefixer');
-
 
 const APP_PATH = path.resolve(__dirname, '../src');
 
@@ -38,34 +36,6 @@ module.exports = {
                     limit: 10000,
                     name: 'static/media/[name].[hash:8].[ext]',
                 }
-            },
-            {
-                test: /\.less$/,
-                use: [
-                    "style-loader",
-                    "css-loader",
-                    "less-loader"
-                ]
-            },
-            {
-                test: /\.css$/,
-                use: [
-                   
-                    "style-loader",
-                    "css-loader",
-                    {
-                        "loader": "postcss-loader",
-                        // "options": {
-                        //     postcss: function () {
-                        //         return [
-                        //             require("autoprefixer")({
-                        //                 browsers: ['ie>=8', '>1% in CN']
-                        //             })
-                        //         ]
-                        //     }
-                        // }
-                    }
-                ]
             }
         ]
     },
@@ -79,17 +49,6 @@ module.exports = {
         new webpack.optimize.CommonsChunkPlugin({
             'name': 'common',
             'minChunks': 2
-        }),
-        new webpack.LoaderOptionsPlugin({
-            options: {
-                postcss: function(){
-                    return [
-                        require("autoprefixer")({
-                            browsers: ['ie>=8','>1% in CN']
-                        })
-                    ]
-                }
-            }
         })
     ]
 }

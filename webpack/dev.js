@@ -8,6 +8,19 @@ const commonConfig = require('./base.js');
 
 const config = merge(commonConfig, {
     devtool: 'eval-source-map',
+    module: {
+        rules: [
+            {
+                test: /\.(css|less)$/,
+                use: [
+                    "style-loader",
+                    "css-loader",
+                    "postcss-loader",
+                    "less-loader"
+                ]
+            }
+        ]
+    },
     plugins: [
         new OpenBrowserPlugin(),
         new webpack.HotModuleReplacementPlugin({
