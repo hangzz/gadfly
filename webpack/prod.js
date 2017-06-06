@@ -27,9 +27,6 @@ const config = merge(commonConfig, {
             debug: false,
         }),
         new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                warnings: false
-            }
         }),
         new ExtractTextPlugin("styles.css")
     ]
