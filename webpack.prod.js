@@ -2,10 +2,18 @@
 
 const webpack = require('webpack');;
 const merge = require('webpack-merge');
-const commonConfig = require('./base.js');
+const commonConfig = require('./webpack.base.js');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const path = require('path');
+var CleanPlugin = require("clean-webpack-plugin");
 
 const config = merge(commonConfig, {
+    output: {
+        path: path.join(__dirname, 'dist'),
+        filename: '[name].[chunkhash].js',
+        // chunkFilename: 'bundle-[id].js',
+        publicPath: '/'
+    },
     module: {
         rules: [
             {
@@ -22,6 +30,7 @@ const config = merge(commonConfig, {
         ]
     },
     plugins: [
+        new CleanPlugin(['dist']),
         new webpack.LoaderOptionsPlugin({
             minimize: true,
             debug: false,

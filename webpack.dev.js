@@ -3,10 +3,16 @@
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 const OpenBrowserPlugin = require('open-browser-webpack-plugin');
-const commonConfig = require('./base.js');
+const commonConfig = require('./webpack.base.js');
 
 
 const config = merge(commonConfig, {
+    output: {
+        path: path.join(__dirname, 'dist'),
+        filename: '[name].js',
+        chunkFilename: 'bundle-[id].js',
+        publicPath: '/'
+    },
     devtool: 'eval-source-map',
     module: {
         rules: [

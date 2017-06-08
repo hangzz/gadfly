@@ -16,6 +16,9 @@
         "eslint:recommended",
         "plugin:react/recommended" //react 推荐
     ],
+    "globals": {
+        "require": true
+    },
     //自定义规则
     "rules": {
         "quotes": ["error","single"], //强制使用一致的反勾号、双引号或单引号
