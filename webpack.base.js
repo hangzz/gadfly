@@ -3,9 +3,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-
 const APP_PATH = path.resolve(__dirname, 'src');
-
 
 module.exports = {
     entry: {
@@ -17,11 +15,13 @@ module.exports = {
                 enforce: "pre",
                 test: /\.(js|jsx)$/,
                 include: APP_PATH,
+                exclude: /node_modules/,
                 use: 'eslint-loader'
             },
             {
                 test: /\.(js|jsx)$/,
                 include: APP_PATH,
+                exclude: /node_modules/,
                 use: 'babel-loader',
             },
             {
@@ -46,12 +46,11 @@ module.exports = {
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor',
             minChunks: function (module) {
-                // 该配置假定你引入的 vendor 存在于 node_modules 目录中
                 return module.context && module.context.indexOf('node_modules') !== -1;
             }
         }),
         new webpack.optimize.CommonsChunkPlugin({
-            name: 'manifest' //But since there are no more common modules between them we end up with just the runtime code included in the manifest file
+            name: 'manifest'
         })
     ]
 }

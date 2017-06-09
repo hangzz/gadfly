@@ -1,12 +1,13 @@
 "use strict";
 
 const webpack = require('webpack');
+const path = require('path');
 const merge = require('webpack-merge');
 const OpenBrowserPlugin = require('open-browser-webpack-plugin');
-const commonConfig = require('./webpack.base.js');
 
+const baseConfig = require('./webpack.base.js');
 
-const config = merge(commonConfig, {
+const config = merge(baseConfig, {
     output: {
         path: path.join(__dirname, 'dist'),
         filename: '[name].js',

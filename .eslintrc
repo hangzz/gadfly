@@ -1,7 +1,9 @@
 {
+    "parser": "babel-eslint",
     "parserOptions": {
         "ecmaVersion": 6,
         "sourceType": "module",
+        "allowImportExportEverywhere": true,
         "ecmaFeatures": {
             "jsx": true
         }
@@ -23,6 +25,7 @@
     "rules": {
         "quotes": ["error","single"], //强制使用一致的反勾号、双引号或单引号
         "no-console": "warn",
-        "no-debugger": "warn"
+        "no-debugger": "warn",
+        "no-unused-vars":"warn"
     }
 }

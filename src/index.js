@@ -9,8 +9,18 @@
 // ReactDOM.render(<Router />,document.getElementById('root'))
 
 
-// import React  from 'react';
-// import Moment from 'react-moment';
+import React  from 'react';
+import { DatePicker } from 'antd';
+
+function determineDate() {
+  import('moment')
+    .then(moment => moment().format('LLLL'))
+    .then(str2 => str2)
+    .catch(err => err);
+}
+
+sdfsdfsd
+determineDdsfsdfdsfate();
 
 // exports default class MyComponent extends React.Component {
 //     render() {
@@ -19,7 +29,9 @@
 //     }
 // }
 
-const a= 1;
+// import Promise from 'promise-polyfill'; 
 
-const moment = require('moment');
-console.log(moment().format(),a);
+// // To add to window
+// if (!window.Promise) {
+//   window.Promise = Promise;
+// }

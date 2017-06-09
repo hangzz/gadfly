@@ -1,18 +1,18 @@
 "use strict";
 
-const webpack = require('webpack');;
-const merge = require('webpack-merge');
-const commonConfig = require('./webpack.base.js');
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const webpack = require('webpack');
 const path = require('path');
-var CleanPlugin = require("clean-webpack-plugin");
+const merge = require('webpack-merge');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const CleanPlugin = require("clean-webpack-plugin");
 
-const config = merge(commonConfig, {
+const baseConfig = require('./webpack.base.js');
+
+const config = merge(baseConfig, {
     output: {
         path: path.join(__dirname, 'dist'),
-        filename: '[name].[chunkhash].js',
-        // chunkFilename: 'bundle-[id].js',
-        publicPath: '/'
+        chunkFilename: 'chunk/bundle-[id].js',
+        filename: '[name].[chunkhash].js'
     },
     module: {
         rules: [
