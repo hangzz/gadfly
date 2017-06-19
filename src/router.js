@@ -13,7 +13,7 @@ const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
 const config = () => (
   <div>
-    <h2>content222</h2>
+    <h2>content</h2>
   </div>
 )
 
